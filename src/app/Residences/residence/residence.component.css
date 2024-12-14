@@ -1,0 +1,74 @@
+.residence-image {
+  width: 200px; /* Ajustez la largeur selon vos besoins */
+  height: auto; /* Maintient le ratio d'aspect */
+  border-radius: 10px; /* Optionnel : ajoute des coins arrondis */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optionnel : ajoute une ombre */
+}
+.residence-card {
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 15px;
+  margin: 10px;
+  text-align: center;
+  width: 250px; /* Largeur de chaque carte */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: inline-block;
+}
+.status-available {
+  color: green;
+  font-weight: bold;
+}
+
+.status-construction {
+  color: orange;
+  font-weight: bold;
+}
+
+.status-sold {
+  color: red;
+  font-weight: bold;
+}
+button {
+  margin: 5px;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+button:active {
+  transform: scale(0.95);
+}
+
+button:nth-child(2) {
+  background-color: #ff5c5c;
+  color: white;
+}
+
+button:nth-child(2):hover {
+  background-color: #ff3838;
+}
+.search-bar {
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.search-bar input {
+  width: 50%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.search-bar input:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+

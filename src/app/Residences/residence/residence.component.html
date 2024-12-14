@@ -1,0 +1,40 @@
+<div class="search-bar">
+  <input
+    type="text"
+    placeholder="Rechercher par adresse..."
+    [(ngModel)]="searchAddress"
+    (input)="filterResidences()"
+  />
+</div>
+<div *ngFor="let residence of listResidences" class="residence-card">
+  <img [src]="residence.image" [alt]="residence.name" class="residence-image" />
+  <h3>{{ residence.name }}</h3>
+
+  <!-- Utilisation de ngSwitch -->
+  <div [ngSwitch]="residence.status" class="status">
+    <span *ngSwitchCase="'Disponible'" class="status-available">✅ Disponible</span>
+    <span *ngSwitchCase="'En Construction'" class="status-construction">🚧 En Construction</span>
+    <span *ngSwitchCase="'Vendu'" class="status-sold">❌ Vendu</span>
+    <span *ngSwitchDefault>⚠️ Statut Inconnu</span>
+  </div>
+  <button (click)="showLocation(residence)">Show Location</button>
+  <button (click)="addToFavorites(residence)">❤️ Like</button>
+  <button [routerLink]="['/Details', residence.id]">Details</button>
+  <button [routerLink]="['/showAppart', residence.id]">Show Appart</button>
+
+
+</div>
+
+<h2>Favoris</h2>
+<div *ngIf="favoriteResidences.length > 0; else noFavorites">
+  <ul>
+    <li *ngFor="let favorite of favoriteResidences">
+      {{ favorite.name }}
+    </li>
+  </ul>
+</div>
+<ng-template #noFavorites>
+  <p>Aucune résidence dans vos favoris.</p>
+</ng-template>
+
+

@@ -1,0 +1,73 @@
+<div class="add-residence-form">
+  <h2>Ajouter une nouvelle résidence</h2>
+
+  <form (ngSubmit)="onSubmit()" #residenceForm="ngForm">
+    <div class="form-group">
+      <label for="name">Nom de la résidence</label>
+      <input
+        type="text"
+        id="name"
+        name="name"
+        [(ngModel)]="newResidence.name"
+        required
+        placeholder="Entrez le nom"
+        #name="ngModel"
+      />
+      <div *ngIf="name.invalid && name.touched" class="error-message">
+        Nom de la résidence est requis.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="address">Adresse</label>
+      <input
+        type="text"
+        id="address"
+        name="address"
+        [(ngModel)]="newResidence.address"
+        required
+        placeholder="Entrez l'adresse"
+        #address="ngModel"
+      />
+      <div *ngIf="address.invalid && address.touched" class="error-message">
+        Adresse est requise.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="image">Image</label>
+      <input
+        type="text"
+        id="image"
+        name="image"
+        [(ngModel)]="newResidence.image"
+        required
+        placeholder="Entrez l'URL de l'image"
+        #image="ngModel"
+      />
+      <div *ngIf="image.invalid && image.touched" class="error-message">
+        L'image est requise.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="status">Statut</label>
+      <select
+        id="status"
+        name="status"
+        [(ngModel)]="newResidence.status"
+        required
+        #status="ngModel"
+      >
+        <option value="Disponible">Disponible</option>
+        <option value="En Construction">En Construction</option>
+        <option value="Vendu">Vendu</option>
+      </select>
+      <div *ngIf="status.invalid && status.touched" class="error-message">
+        Statut est requis.
+      </div>
+    </div>
+
+    <button type="submit" [disabled]="residenceForm.invalid">Ajouter</button>
+  </form>
+</div>

@@ -1,0 +1,78 @@
+<p>add-appartement works!</p>
+<div class="container">
+  <h1>Ajouter un Appartement</h1>
+  <form (ngSubmit)="onSubmit()" #apartmentForm="ngForm">
+
+    <div class="form-group">
+      <label for="name">Nom de l'appartement</label>
+      <input
+        type="text"
+        id="name"
+        name="name"
+        [(ngModel)]="apartment.name"
+        required
+        #name="ngModel">
+      <div *ngIf="name.invalid && name.touched" class="error">
+        Le nom est obligatoire.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="address">Adresse</label>
+      <input
+        type="text"
+        id="address"
+        name="address"
+        [(ngModel)]="apartment.address"
+        required
+        #address="ngModel">
+      <div *ngIf="address.invalid && address.touched" class="error">
+        L'adresse est obligatoire
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="rooms">Nombre de chambres</label>
+      <input
+        type="number"
+        id="rooms"
+        name="rooms"
+        [(ngModel)]="apartment.rooms"
+        required
+        #rooms="ngModel">
+      <div *ngIf="rooms.invalid && rooms.touched" class="error">
+        Le nombre de chambres est obligatoire
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="price">Prix</label>
+      <input
+        type="number"
+        id="price"
+        name="price"
+        [(ngModel)]="apartment.price"
+        required
+        #price="ngModel">
+      <div *ngIf="price.invalid && price.touched" class="error">
+        Le prix est obligatoire
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="description">Description</label>
+      <textarea
+        id="description"
+        name="description"
+        [(ngModel)]="apartment.description"
+        rows="4"
+        required
+        #description="ngModel"></textarea>
+      <div *ngIf="description.invalid && description.touched" class="error">
+        La description est obligatoire
+      </div>
+    </div>
+
+    <button type="submit" [disabled]="apartmentForm.invalid">Ajouter l'appartement</button>
+  </form>
+</div>

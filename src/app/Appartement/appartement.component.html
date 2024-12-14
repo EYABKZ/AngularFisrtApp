@@ -1,0 +1,19 @@
+<div *ngFor="let apart of listFilter" class="residence-card">
+  <h3>id : {{ apart.id }}</h3>
+  <h3>appartNum : {{ apart.appartNum }}</h3>
+  <h3>floorNum : {{ apart.floorNum }}</h3>
+  <h3>surface : {{ apart.surface }}</h3>
+  <h3>surfaceTerrace : {{ apart.surfaceTerrace }}</h3>
+  <h3>category : {{ apart.category }}</h3>
+  <h3>description : {{ apart.description }}</h3>
+  <h3>residence : {{ apart.residence }}</h3>
+
+  <!-- Utilisation de ngSwitch -->
+  <div [ngSwitch]="apart.terrace" class="status">
+    <span *ngSwitchCase="'oui'" class="status-available">✅ True</span>
+    <span *ngSwitchCase="'non'" class="status-sold">❌ False</span>
+    <span *ngSwitchDefault>⚠️ Statut Inconnu</span>
+  </div>
+</div>
+
+

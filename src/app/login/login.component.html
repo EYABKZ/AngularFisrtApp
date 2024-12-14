@@ -1,0 +1,38 @@
+<h1> FormGroup</h1>
+<div class="container">
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input
+        type="email"
+        id="email"
+        formControlName="email"
+        class="form-control"
+        [ngClass]="{ 'is-invalid': submitted && loginForm.get('email')?.errors }"
+      />
+      <div class="invalid-feedback" *ngIf="submitted && loginForm.get('email')?.errors">
+        <div *ngIf="loginForm.get('email')?.errors?.['required']">L'email est obligatoire</div>
+        <div *ngIf="loginForm.get('email')?.errors?.['email']">L'email n'est pas valide</div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="password">Mot de passe</label>
+      <input
+        type="password"
+        id="password"
+        formControlName="password"
+        class="form-control"
+        [ngClass]="{ 'is-invalid': submitted && loginForm.get('password')?.errors }"
+      />
+      <div class="invalid-feedback" *ngIf="submitted && loginForm.get('password')?.errors">
+        <div *ngIf="loginForm.get('password')?.errors?.['required']">Le mot de passe est obligatoire</div>
+        <div *ngIf="loginForm.get('password')?.errors?.['minlength']">
+          Le mot de passe doit contenir au moins 6 caractères.
+        </div>
+      </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Connexion</button>
+  </form>
+</div>

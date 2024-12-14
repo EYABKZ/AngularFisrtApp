@@ -1,0 +1,24 @@
+
+<br>
+<input type="text" placeholder="search by age" [(ngModel)]="ageMax">
+
+<div *ngFor="let u of user">
+  <ng-container *ngIf="u.age<ageMax  || ageMax==null">
+
+    {{u.id}} {{u.name}} {{u.age}}{{u.email}}
+
+  </ng-container>
+</div>
+
+<button class="btn btn-primary" (click)="show()"> save </button>
+
+<br>
+
+<input type="text" placeholder="color" [(ngModel)]="color">
+
+<p [style.backgroundColor]="color">
+
+  PropertyBinding
+</p>
+
+{{color}}
