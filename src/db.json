@@ -1,0 +1,18 @@
+{
+  "residences": [
+    {
+      "id": 1,
+      "name": "Residence 1",
+      "address": "123 Main St",
+      "image": "assets/default-image.jpg",
+      "status": "Available"
+    },
+    {
+      "id": 2,
+      "name": "Residence 2",
+      "address": "456 Elm St",
+      "image": "assets/default-image.jpg",
+      "status": "Unavailable"
+    }
+  ]
+}
